@@ -7,7 +7,7 @@
 // STEP 1: ARRAY DECLARATION
 // ===========================================
 // TODO: Create your arrays here
-songArray = []; // This is just a placeholder line to avoid syntax errors
+// This is just a placeholder line to avoid syntax errors
 
 // TODO: Create an array with at least 5 song titles (strings)
 // MDN Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array

@@ -59,11 +59,11 @@ function displaySelectedSongs() {
 
   // TODO: Get the last song from mySongs
   // HINT: Use mySongs.length - 1 for the last index
-  let lastSong = mySongs.length - 1; // Your code here
+  let lastSong = mySongs[mySongs.length - 1]; // Your code here
 
   // TODO: Get the middle song from mySongs
   // HINT: Use Math.floor(mySongs.length / 2) for middle index
-  let middleSong = Math.floor(mySongs.length / 2); // Your code here
+  let middleSong = mySongs[Math.floor(mySongs.length / 2)]; // Your code here
 
   // DOM operations handled for you - focus on the array logic above
   document.getElementById("first-song").textContent = firstSong;
@@ -239,14 +239,19 @@ function displayAllSongsForEach() {
     return;
   }
 
-  let songsHTML = "<h3>All Songs (using .forEach):</h3>";
+  let songsHTML = "<h3>All Songs:</h3>";
+
+  mySongs.forEach(function (song, index) {
+    songsHTML +=
+      "<div class='song-item'>" + (index + 1) + ". " + song + "</div>";
+  });
 
   // TODO: Use .forEach() method to go through all songs
   // MDN Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-  mySongs.forEach(function (song, index) {}); // Your code here - use mySongs.forEach(function(song, index) { ... })
+  // Your code here - use mySongs.forEach(function(song, index) { ... })
 
   // Inside the forEach function, add each song to songsHTML like this:
-  songsHTML += "<div class='song-item'>" + (index + 1) + ". " + song + "</div>"; // songsHTML += "<div class='song-item'>" + (index + 1) + ". " + song + "</div>";
+  // songsHTML += "<div class='song-item'>" + (index + 1) + ". " + song + "</div>";
 
   // DOM operations handled for you - focus on the array logic above
   document.getElementById("all-songs").innerHTML = songsHTML;
@@ -265,7 +270,9 @@ function createFormattedSongList() {
 
   // TODO: Use .map() method to create an array of formatted strings
   // MDN Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-  let formattedSongs = mySongs.map(function (song, index) {}); // Your code here - use mySongs.map(function(song, index) { ... })
+  let formattedSongs = mySongs.map(function (song, index) {
+    return index + 1 + ". " + song + " ♫";
+  }); // Your code here - use mySongs.map(function(song, index) { ... })
 
   // Inside the map function, return a formatted string like:
   // return (index + 1) + ". " + song + " ♫";
@@ -273,11 +280,11 @@ function createFormattedSongList() {
   let songsHTML = "<h3>Formatted Songs (using .map):</h3>";
 
   // TODO: Use .forEach() to display the formatted songs array
-  formattedSongs.forEach(function (formattedSong) {}); // Your code here - use formattedSongs.forEach(function(formattedSong) { ... })
+  formattedSongs.forEach(function (formattedSong) {
+    songsHTML += "<div class='song-item'>" + formattedSong + "</div>";
+  }); // Your code here - use formattedSongs.forEach(function(formattedSong) { ... }) // songsHTML += "<div class='song-item'>" + formattedSong + "</div>";
 
   // Inside the forEach, add to songsHTML like:
-  songsHTML += "<div class='song-item'>" + formattedSong + "</div>"; // songsHTML += "<div class='song-item'>" + formattedSong + "</div>";
-
   // DOM operations handled for you - focus on the array logic above
   document.getElementById("all-songs").innerHTML = songsHTML;
 
